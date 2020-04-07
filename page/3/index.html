@@ -40,7 +40,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="javascript:void(0)" class="profilepic">
-			<img src="https://user-gold-cdn.xitu.io/2020/4/4/17144b064896f943?imageView2/1/w/180/h/180/q/85/format/webp/interlace/1" class="js-avatar">
+			<img src="https://avatars1.githubusercontent.com/u/20317337?s=460&u=d02b509ff7ead6ecb9d734b5d701ebe3be9ba2cc&v=4" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">金粒儿</a></h1>
@@ -122,6 +122,89 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-JS基础-触摸事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/03/JS基础-触摸事件/">触摸事件</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/03/JS基础-触摸事件/" class="archive-article-date">
+  	<time datetime="2019-03-03T11:48:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用 js 触摸事件时候在滑动页面在控制台上总会报出<br><code>Unable to preventDefault inside passive event listener</code> 的错误</p>
+<p>看到了思否syaka的文章 <a href="https://segmentfault.com/a/1190000008512184" target="_blank" rel="noopener">Unable to preventDefault inside passive event listener</a><br>参考<a href="https://developers.google.com/web/updates/2017/01/scrolling-intervention" target="_blank" rel="noopener">developers.google</a></p>
+<blockquote>
+<p>浏览器为了提高的滚动性能和体验在 chrome 56+ 触摸事件的监听器被加上（被动事件监听器）选项 <code>{passive: true}</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&quot;touchstart&quot;, func);</span><br></pre></td></tr></table></figure>
+<p>  将会变被浏览器理解为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&quot;touchstart&quot;, func, &#123;passive: true&#125; );</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>如果func 中有 preventDefault 可以设置 <code>{passive: false}</code>来覆盖默认行为<br><code>window.addEventListener(&quot;touchstart&quot;, func, {passive: false} );</code><font color="red">// 不建议使用</font></p>
+</blockquote>
+<blockquote>
+<p>如果在touchstart 调用 preventDefault()，确保在touchend 调用 preventDefault() 来继续阻止默认行为的发生</p>
+</blockquote>
+<blockquote>
+<p>如果在事件中使用 <code>preventDefault()</code>会阻止滚动。大多数情况下监听器不会调用，浏览器需要等待事件完成之后才能确定。被动事件监听器可以解决这个问题，当在事件处理程序中添加 <code>{passive: true}</code>会告诉浏览器监听器不会用<code>preventDefault()</code>，并且浏览器可以安全的执行滚动而不会阻止监听器</p>
+</blockquote>
+<h3 id="常见的问题"><a href="#常见的问题" class="headerlink" title="常见的问题"></a>常见的问题</h3><blockquote>
+<p>大多数情况下不会出现问题一般是我们不希望它滚动的时候可能会导致意外滚动<br>但是可以通过设置不应滚动元素的css属性<code>touch-action: none</code>来解决</p>
+</blockquote>
+<blockquote>
+<p>在极少数的情况下，会导致意外的点击事件（当我们没有在<code>touchEnd</code> 设置 <code>preventDefault()</code>）</p>
+</blockquote>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><blockquote>
+<p>我们不应该依赖于在TouchStart和TouchMove监听器内部调用PreventDefault（），（不再保证在Chrome中得到承认和可用）<br>应该在禁用滚动和缩放功能的元素上应用touch action css属性，以便在发生任何触摸事件之前通知浏览器</p>
+</blockquote>
+<blockquote>
+<p>阻止滚动和缩放<code>touch-action: none ;</code></p>
+</blockquote>
+<blockquote>
+<p>阻止水平方向,垂直方向依然可以默认滚动<code>touch-action: pan-y pinch-zoom</code></p>
+</blockquote>
+<blockquote>
+<p>要抑制tap的默认行为（如生成click事件），请在TouchEnd侦听器内部调用preventDefault（）</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-JS基础-拷贝" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -660,60 +743,6 @@
 
 
   
-    <article id="post-网页性能-优化建议-Minify-css" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/14/网页性能-优化建议-Minify-css/">网页性能———优化建议-Minify css</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/14/网页性能-优化建议-Minify-css/" class="archive-article-date">
-  	<time datetime="2018-09-14T07:18:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>Minify CSS<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;</span><br><span class="line">  background-color: #000000;</span><br><span class="line">&#125;</span><br><span class="line">h2 &#123;</span><br><span class="line">  background-color: #000000;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">h1, h2 &#123; background-color: #000000; &#125;</span><br><span class="line"></span><br><span class="line">.color &#123;</span><br><span class="line">  color: #000000;</span><br><span class="line">&#125;</span><br><span class="line">.color &#123;</span><br><span class="line">  color: #000;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>推荐：<br>对于不经常更新的小型网站，可以使用在线的工具来压缩 css 代码<br>对于专业的开发真，可以使用使用自动化构建工具 gulp 和 webpack</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -803,11 +832,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">css、文字对齐</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css、文字对齐</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">

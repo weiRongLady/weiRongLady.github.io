@@ -40,7 +40,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="javascript:void(0)" class="profilepic">
-			<img src="https://user-gold-cdn.xitu.io/2020/4/4/17144b064896f943?imageView2/1/w/180/h/180/q/85/format/webp/interlace/1" class="js-avatar">
+			<img src="https://avatars1.githubusercontent.com/u/20317337?s=460&u=d02b509ff7ead6ecb9d734b5d701ebe3be9ba2cc&v=4" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">金粒儿</a></h1>
@@ -122,6 +122,76 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-工程化-webpack基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/07/工程化-webpack基础/">工程化-webpack基础</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/07/工程化-webpack基础/" class="archive-article-date">
+  	<time datetime="2020-04-07T05:41:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h4><p>安装 node.js</p>
+<p>安装 nvm 或 n （ 管理node 版本）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir webpack-project</span><br><span class="line"></span><br><span class="line">cd webpack-project</span><br><span class="line"></span><br><span class="line">// create a package.json file</span><br><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack webpack-cli --save-dev</span><br></pre></td></tr></table></figure>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>webpack.config.js 配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  entry: &apos;&apos;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    file:&apos;&apos;,</span><br><span class="line">    path:&apos;&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  mode: &apos;production&apos;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>node_modules/.bin/webpack</p>
+<p>通常状态下我们会使用软连接，来简化我们使用命令</p>
+<p>在 package.json scripts 中配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;build&quot;: &quot;webpack&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在终端中使用 npm run build </p>
+<h4 id="完善"><a href="#完善" class="headerlink" title="完善"></a>完善</h4><p>当我们在项目中使用 ES6 、ES7 要使用babel 进行转化</p>
+<p>使用 babel </p>
+<p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i @babel/core @babel/preset-env @babel-loader -D</span><br></pre></td></tr></table></figure>
+<p>“@babel/preset-env”  是常用环境的预设</p>
+<p>创建 .babelirc 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [</span><br><span class="line">    &quot;@babel/preset-env&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用 react </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i react react-dom @babel/preset-react -d</span><br></pre></td></tr></table></figure>
+<p>最终<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [</span><br><span class="line">    &quot;@babel/preset-env&quot;</span><br><span class="line">    &quot;@babel/preset-react&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-JS基础-Array" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -896,69 +966,6 @@
 
 
   
-    <article id="post-网页性能-用户为中心的网页性能" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/04/网页性能-用户为中心的网页性能/">用户为中心的网页性能</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/04/网页性能-用户为中心的网页性能/" class="archive-article-date">
-  	<time datetime="2020-03-04T09:07:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第一章 Lighhthouse 的数据指标<br>第二章 以用户为中心的性能优化</p>
-<p>浏览器通过将任务添加到主线程上的队列等待逐个执行来响应用户输入。 浏览器执行应用的 JavaScript 时也会这样做，因此从这个角度看，浏览器为单线程。<br>在某些情况下，运行这些任务可能要花费较长时间，如果确实如此，主线程就会遭到阻止，而队列中的所有其他任务都必须等待。<br>￼<br>对于用户而言，任务耗时较长表现为滞后或卡顿，而这也是目前网页不良体验的主要根源。<br>Long Tasks API 可以将任何耗时超过 50 毫秒的任务标示为可能存在问题，并向应用开发者显示这些任务。 选择 50 毫秒的时间是为了让应用满足在 100 毫秒内响应用户输入的 RAIL 指导原则。<br>Speed index<br>优化内容效率<br>优化关键渲染路径<br>RAIL 模型评估<br>Rail 是一种以用户往往为中心的性能模型<br>每个网络应用都有与起生命周期相关的四个不同的方向，并且这些方向以不同的方式影响着性能<br>￼<br>以用户未中心：以用户未未中心不说让我们的网站在任何特定的设备都能运行很快，而是使用户满意<br>立即响应用户： 在100ms 内确定用户的输入<br>设置动画或者滚动，在10ms 内生成帧<br>最大限度增加主线程的空闲时间<br>持续吸引用户；在1000ms呈现交互内容</p>
-<p>￼<br>以用户为中心<br>让用户成为您的性能工作的中心。用户花在网站上的大多数时间不是等待加载，而是在使用时等待响应。了解用户如何评价性能延迟：</p>
-<p>￼<br>响应：在 100 毫秒以内响应<br>在用户注意到滞后之前您有 100 毫秒的时间可以响应用户输入。这适用于大多数输入，不管他们是在点击按钮、切换表单控件还是启动动画。但不适用于触摸拖动或滚动。<br>如果您未响应，操作与反应之间的连接就会中断。用户会注意到。<br>尽管很明显应立即响应用户的操作，但这并不总是正确的做法。使用此 100 毫秒窗口执行其他开销大的工作，但需要谨慎，以免妨碍用户。如果可能，请在后台执行工作。<br>对于需要超过 500 毫秒才能完成的操作，请始终提供反馈。</p>
-<p>动画：在 10 毫秒内生成一帧<br>动画不只是奇特的 UI 效果。例如，滚动和触摸拖动就是动画类型。<br>如果动画帧率发生变化，您的用户确实会注意到。您的目标就是每秒生成 60 帧，每一帧必须完成以下所有步骤：</p>
-<p>￼<br>从纯粹的数学角度而言，每帧的预算约为 16 毫秒（1000 毫秒 / 60 帧 = 16.66 毫秒/帧）。 但因为浏览器需要花费时间将新帧绘制到屏幕上，只有 10 毫秒来执行代码<br>在像动画一样的高压点中，关键是不论能不能做，什么都不要做，做最少的工作。 如果可能，请利用 100 毫秒响应预先计算开销大的工作，这样您就可以尽可能增加实现 60fps 的可能性。</p>
-<p>跟踪耗时较长的任务<br>上文提到，耗时较长的任务通常会带来某种负面的用户体验（例如， 事件处理程序运行缓慢，或者掉帧）。 您最好了解发生这种情况的频率，以设法尽量减少这种情况。<br>要在 JavaScript 中检测耗时较长的任务，请创建新的 PerformanceObserver，并观察类型为 longtask 的条目。 耗时较长的任务条目的一个有点是包含提供方属性，有助于您更轻松地追查导致出现耗时较长任务的代码：<br>const observer = new PerformanceObserver((list) =&gt; {   for (const entry of list.getEntries()) {     ga(‘send’, ‘event’, {       eventCategory:’Performance Metrics’,       eventAction: ‘longtask’,       eventValue:Math.round(entry.startTime + entry.duration),       eventLabel:JSON.stringify(entry.attribution),     });   } });  observer.observe({entryTypes: [‘longtask’]});<br>提供方属性会指出导致耗时较长任务的帧上下文，这有助于您确定问题是否由第三方 iframe 脚本所致。 未来版本的规范计划添加更多详细信息并公开脚本网址、行号和列号，这有助于确定速度缓慢问题是否由您自己的脚本所致。</p>
-<p>跟踪输入延迟<br>阻塞主线程的耗时较长任务可能会导致事件侦听器无法及时执行。 RAIL 性能模型指出，为提供流畅的界面体验，界面应在用户执行输入后的 100 毫秒内作出响应，若非如此，请务必探查原因。<br>若要在代码中检测输入延迟，您可将事件时间戳与当前时间作比较，如果两者相差超过 100 毫秒，您可以并应该进行报告。<br>const subscribeBtn = document.querySelector(‘#subscribe’);  subscribeBtn.addEventListener(‘click’, (event) =&gt; {   // Event listener logic goes here…    const lag = performance.now() - event.timeStamp;   if (lag &gt; 100) {     ga(‘send’, ‘event’, {       eventCategory:’Performance Metric’       eventAction: ‘input-latency’,       eventLabel: ‘#subscribe:click’,       eventValue:Math.round(lag),       nonInteraction: true,     });   } });<br>由于事件延迟通常是由耗时较长的任务所致，因此您可将事件延迟检测逻辑与耗时较长任务检测逻辑相结合：如果某个耗时较长的任务在 event.timeStamp 所示的时间阻塞主线程，您也可以报告该耗时较长任务的提供方值。 如此，您即可在负面性能体验与导致该体验的代码之间建立明确的联系。<br>虽然这种方法并不完美（不会处理之后在传播阶段耗时较长的事件侦听器，也不适用于不在主线程中运行的滚动或合成动画），但确实是良好的开端，让您能更好地了解运行时间较长的 JavaScript 代码对用户体验产生影响的频率。</p>
-<p>移动设备<br>百分位    TTI（秒）<br>50%    3.9<br>75%    8.0<br>90%    12.6<br>按移动设备与桌面设备划分结果，并以分布图的方式分析数据，可让您迅速了解实际用户的体验。 例如，通过上表，我很容易便可发现，对于此应用，10% 的移动用户需等待 12 秒以上才能进行交互！<br>性能对业务的影响<br>在分析工具中跟踪性能有一项巨大优势，即您之后可以利用该数据来分析性能对业务的影响。<br>如果您在分析工具中跟踪目标达成情况或电子商务转化情况，则可通过创建报告来探查两者与应用性能指标之间的关联。 例如：<br>· 体验到更快交互速度的用户是否会购买更多商品？<br>· 如果用户在结账流程中遇到较多耗时较长的任务，其离开率是否较高？<br>如果发现存在关联，即可轻松建立性能至关重要且应该优先考虑的商业案例。</p>
-<p>加载放弃<br>我们知道，用户经常会因为页面加载时间过长而选择离开。 不幸的是，这意味着我们的所有性能指标都存在幸存者偏差，即数据不包括未等待页面加载完成的用户的加载指标（这很可能意味着数量过低）。<br>虽然您无法获悉如果这类用户逗留所产生的指标，但可以跟踪发生这种情况的频率以及每位用户逗留的时长。<br>使用 Google Analytics 完成此任务比较棘手，因为 analytics.js 库通常是以异步方式加载，而且可能在用户决定离开前尚不可用。 但是，您无需等待 analytics.js 加载完成再将数据发送到 Google Analytics。 您可以直接通过 Measurement Protocol 发送数据。<br>以下代码为 visibilitychange 事件添加侦听器（该事件在页面卸载或进入后台时触发），并在该事件触发时发送 performance.now() 值。</p>
-<p>优化性能以及避免性能下降<br>定义以用户为中心的指标的好处在于，您优化这些指标时，用户体验必然也会同时改善。<br>改善性能最简单的一种方法是，直接减少发送到客户端的 JavaScript 代码，但如果无法缩减代码长度，则务必要思考如何提供 JavaScript。<br> 优化 FP/FCP<br>从文档的 <head> 中移除任何阻塞渲染的脚本或样式表，可以减少首次绘制和首次内容绘制前的等待时间。确定向用户指出“正在发生”所需的最小样式集，并将其内联到 <head> 中，即可实现极短的首次绘制时间。</head></head></p>
-<p>优化 FMP/TTI</p>
-<p>确定页面上最关键的界面元素（主角元素）之后，应确保初始脚本加载仅包含渲染这些元素并使其可交互所需的代码。<br>初始 JavaScript 软件包中所包含的任何与主角元素无关的代码都会延长可交互时间。 没有理由强迫用户设备下载并解析当前不需要的 JavaScript 代码。<br>应该尽可能缩短 FMP 与 TTI 之间的时间， 如果无法最大限度缩短此时间，界面绝对有必要明确指出页面尚不可交互。</p>
-<p>避免出现耗时较长的任务<br>拆分代码并按照优先顺序排列要加载的代码，不仅可以缩短页面可交互时间，还可以减少耗时较长的任务，然后即有希望减少输入延迟及慢速帧。<br>除了将代码拆分为多个单独的文件之外，您还可将大型同步代码块拆分为较小的块，以便以异步方式执行，或者推迟到下一空闲点。 以异步方式在较小的块中执行此逻辑，可在主线程中留出空间，供浏览器响应用户输入。<br>最后，您应确保测试第三方代码，并对任何低速运行的代码追责。 产生大量耗时较长任务的第三方广告或跟踪脚本对您业务的伤害大于帮助。<br>避免性能下降<br>本文重点强调的是针对实际用户的性能测量，虽然 RUM 数据确实是十分重要的性能数据，但实验室数据对于在发布新功能前确保应用性能良好（而且不会下降）而言仍然十分关键。 实验室测试非常适合用于检测性能是否下降，因为这些测试是在受控环境中运行，出现随机变化的可能性远低于 RUM 测试。<br>Lighthouse 和 Web Page Test 等工具可以集成到持续集成服务器中，而且您可以编写相应的测试，以在关键指标退化或下降到低于特定阈值时将构件判定为失败。<br>对于已发布的代码，您可以添加自定义提醒，以通知您负面性能事件的发生率是否意外突增。 例如，如果第三方发布其某个服务的新版本，而您的用户突然开始看到大量新增的耗时较长任务，就代表出现这种情况。<br>为成功避免性能下降，您必须在实验室和实际运行环境中针对发行的每个新功能进行性能测试。<br>￼<br>【参考】<br>1、User-centric performance metrics  by  Philip Walton</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1048,11 +1055,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">css、文字对齐</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css、文字对齐</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
