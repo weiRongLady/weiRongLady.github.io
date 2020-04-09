@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://weironglady.github.io">
-  <title>Archives: 2020/3 | 金粒儿</title>
+  <title>CSS-设置iphone x + 的安全区 | 金粒儿</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="金粒儿">
-<meta property="og:url" content="https://weironglady.github.io/archives/2020/03/index.html">
+  <meta name="description" content="viewport-fitviewport-fit 控制文档如何填充满足整个屏幕 1&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;viewport-fit=cover&amp;quot; /&amp;gt; // 不影响初始布局，整个web页面可以查看viewport-fit: auto;// 按照比例缩放，以显示内嵌的最大矩形viewport-fit: cont">
+<meta name="keywords" content="CSS iphone x xr 底部的安全距离">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS-设置iphone x + 的安全区">
+<meta property="og:url" content="https://weironglady.github.io/2020/04/09/CSS-设置iphone-x-的安全区/index.html">
 <meta property="og:site_name" content="金粒儿">
+<meta property="og:description" content="viewport-fitviewport-fit 控制文档如何填充满足整个屏幕 1&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;viewport-fit=cover&amp;quot; /&amp;gt; // 不影响初始布局，整个web页面可以查看viewport-fit: auto;// 按照比例缩放，以显示内嵌的最大矩形viewport-fit: cont">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-04-09T09:32:57.036Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="金粒儿">
+<meta name="twitter:title" content="CSS-设置iphone x + 的安全区">
+<meta name="twitter:description" content="viewport-fitviewport-fit 控制文档如何填充满足整个屏幕 1&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;viewport-fit=cover&amp;quot; /&amp;gt; // 不影响初始布局，整个web页面可以查看viewport-fit: auto;// 按照比例缩放，以显示内嵌的最大矩形viewport-fit: cont">
   
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
@@ -121,287 +125,99 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-CSS-设置iphone-x-的安全区" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS-设置iphone x + 的安全区
+    </h1>
+  
+
+        
+        <a href="/2020/04/09/CSS-设置iphone-x-的安全区/" class="archive-article-date">
+  	<time datetime="2020-04-09T07:44:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="viewport-fit"><a href="#viewport-fit" class="headerlink" title="viewport-fit"></a>viewport-fit</h3><p>viewport-fit 控制文档如何填充满足整个屏幕</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;viewport-fit=cover&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>// 不影响初始布局，整个web页面可以查看<br>viewport-fit: auto;<br>// 按照比例缩放，以显示内嵌的最大矩形<br>viewport-fit: contain;<br>// 视图端口被缩放以填充设备显示<br>viewport-fit: cover;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 建议：如果使用 viewport-fit=cover 最好使用 safe-area 变量，确保重要内容不会显示在视口之外</span><br><span class="line"></span><br><span class="line">body &#123;</span><br><span class="line">  padding:</span><br><span class="line">    env(safe-area-inset-top, 20px)</span><br><span class="line">    env(safe-area-inset-right, 20px)</span><br><span class="line">    env(safe-area-inset-bottom, 20px)</span><br><span class="line">    env(safe-area-inset-left, 20px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="css的env函数"><a href="#css的env函数" class="headerlink" title="css的env函数"></a>css的env函数</h3><p>env 将用户代理的环境变量插入在css 中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">env( &lt;custom-ident&gt; , &lt;declaration-value&gt;? )</span><br></pre></td></tr></table></figure>
+<p>custom-ident：指用户自定义字符串标识符。一种CSS 数据类型；要区分大小写，值不能有任何歧义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">env(safe-area-inset-bottom);</span><br><span class="line">//  有回退值</span><br><span class="line">env(safe-area-inset-bottom, 20px);</span><br></pre></td></tr></table></figure>
+<h4 id="value"><a href="#value" class="headerlink" title="value"></a>value</h4><blockquote>
+<p>safe-area-inset-top, safe-area-inset-right, safe-area-inset-bottom, safe-area-inset-left<br>safe-area-inset-*由四个定义了视口边缘内矩形的 top, right, bottom 和 left 的环境变量组成，这样可以安全地放入内容，而不会有被非矩形的显示切断的风险。对于矩形视口，例如普通的笔记本电脑显示器，其值等于零。 对于非矩形显示器（如圆形表盘，iPhoneX屏幕），在用户代理设置的四个值形成的矩形内，所有内容均可见。</p>
+</blockquote>
+<p>注意: 不同于其他的 CSS 属性，用户代理定义的属性名字对大小写敏感。</p>
+<p>支持： chrome 69+</p>
+<p>解决方案：<br>1、meta 的 viewport content 值增加 viewport-fit=cover<br>2、如果是固底的 tab-bar 使用 env(safe-area-inset-bottom)，其他情况按照场景设置其他的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">padding-top: constant(safe-area-inset-top); // ios &lt; 11.2 </span><br><span class="line">padding-top: env(safe-area-inset-top); //  ios &gt;= 11.2</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/30/JS基础-Iterator遍历器/" class="archive-article-date">
-  	<time datetime="2020-03-30T07:45:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/30/JS基础-Iterator遍历器/">Iterator 遍历器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/17/小程序-基础/" class="archive-article-date">
-  	<time datetime="2020-03-17T03:25:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/17/小程序-基础/">小程序相关</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/11/JS基础-Map/" class="archive-article-date">
-  	<time datetime="2020-03-11T09:06:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/11/JS基础-Map/">JS 基础-Map</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/11/JS基础-Set/" class="archive-article-date">
-  	<time datetime="2020-03-11T09:06:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/11/JS基础-Set/">JS 基础-Set</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/11/JS基础-Object/" class="archive-article-date">
-  	<time datetime="2020-03-11T07:39:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/11/JS基础-Object/">JS 基础-Object</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Object</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS iphone x xr 底部的安全距离</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/10/Git-基础/" class="archive-article-date">
-  	<time datetime="2020-03-10T03:23:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-10</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/10/Git-基础/">Git</a>
-    </h1>
+  
+    <a href="/2020/04/07/火花：1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">思想：</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/10/网页性能-以用户为中心的性能指标/" class="archive-article-date">
-  	<time datetime="2020-03-10T03:00:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/10/网页性能-以用户为中心的性能指标/">以用户为中心的性能指标</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/04/网页性能-用户为中心的网页性能/" class="archive-article-date">
-  	<time datetime="2020-03-04T09:07:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/04/网页性能-用户为中心的网页性能/">用户为中心的网页性能</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/04/JS基础-模块化/" class="archive-article-date">
-  	<time datetime="2020-03-04T09:03:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/04/JS基础-模块化/">require 和 import 的区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -426,8 +242,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

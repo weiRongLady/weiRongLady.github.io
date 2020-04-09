@@ -123,6 +123,136 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-业务-曝光埋点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/01/业务-曝光埋点/">曝光埋点</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/01/业务-曝光埋点/" class="archive-article-date">
+  	<time datetime="2019-04-01T09:16:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考：<a href="https://juejin.im/post/5ca15c1e51882567b544ee0b" target="_blank" rel="noopener">https://juejin.im/post/5ca15c1e51882567b544ee0b</a></p>
+<p>1、 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect" target="_blank" rel="noopener">Element.getBoundingClientRect()</a></p>
+<p>方法返回元素的大小及其相对于视口的位置。</p>
+<p>问题：代码都在主线程上运行，所以任何一点都可能造成性能问题<br>2、<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API" target="_blank" rel="noopener">Intersection Observer API</a></p>
+<p>  Intersection observer API提供了一种方法，可以异步观察目标元素与祖先元素或顶层文件的交集变化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var observer = new IntersectionObserver(callback, options)</span><br></pre></td></tr></table></figure>
+<p>目标元素被认为是包含所有元素的最小矩形<br>可以设置 thresholds 的百分比</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vue-router" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/06/vue-router/">vue-router</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/06/vue-router/" class="archive-article-date">
+  	<time datetime="2019-03-06T11:45:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>router-link</p>
+<p>:to<br>require<br>字符串 name/path<br>对象 path &amp; params</p>
+<p>replace 不会在histroy 添加历史<br>tag 可以配置标签</p>
+<p>append 在当前路由后添加路径</p>
+<p>active-class<br>router-link-active</p>
+<p>exact 精准匹配<br>router-link-exact-active</p>
+<p>router-view 组件是一个 functional 组件，渲染路径匹配到的视图组件</p>
+<p>props 设置了名称，回对应渲染对应路由配置下的相应组件<br>命名视图 你可以在界面中拥有多个单独命名的视图，而不是只有一个单独的出口</p>
+<p>视图嵌套<br>Router<br>routers: [],<br>mode: hash/histroy/abstract<br>  hash 支持所有浏览器<br>  histroy H5 histroy 模式<br>  abstract 支持所有的 javascript 运行环境<br>base<br>scrollBehavior 滚动行为</p>
+<p>router 的实例<br>方法 和 对象<br>beforeEach<br>beforeResolve<br>afterEach<br>push/replace/go/back/forward</p>
+<p>router.push({<br>  name: ‘user’,<br>  params: {<br>    userid: 1213<br>  },<br>  query: ‘’<br>})<br>router.push({<br>  path: ‘user/‘+userid,<br>  query: {}<br>},<br>onComplate () {</p>
+<p>},<br>onAbort () {</p>
+<p>})<br>name 和 path 的区别<br>name + param =&gt; path</p>
+<p>导航守卫守卫对象是目标路由<br>全局/单个路由独享/组件</p>
+<p>参数查询的改变不会触发导航守卫</p>
+<p>hash  模式路由地址会带 # ，但是浏览器发送给服务器端是# 之前的URL<br>hash 模式的好处是，虽然是单页面，可以刷新当前页面</p>
+<p>histroy  需要服务器端配合，如果服务端配置仅仅是找不到路由，就重定向到index.html 刷新会跳首页，如果服务端对于匹配不到的url 不做配置，会返回 404 </p>
+<p>构建SPA 需要引入前端路由系统，着就是 vue-router 存在的意义。前端路由的核心，就在于——改变视图的同时不会向后端发出请求。</p>
+<p>hash —— url 中的 # </p>
+<p><a href="http://www.abc.com/#/hello" target="_blank" rel="noopener">http://www.abc.com/#/hello</a>  hash 的值为 #/hello 。<br>hash 虽然出现在 url  中，但是不会被包含在http 请求中，对后端完全没有影戏那个，因此改变 hash 不会重新加载页面。</p>
+<p>history —— 利用了 HTML5 history Interface 中新增的 pushState() 和 replaceState() 方法</p>
+<p>这两个方法应用于浏览器的历史记录栈，在当前已有的 back、forword、go 的基础之上，他们提供了对历史记录修改的功能。修改的时候，改变了 url，但是浏览器不会立即向后端发送请求。</p>
+<p>hash 模式下，仅 hash 符号之前的内容会被包含在请求中。因此没有坐到对路由的全覆盖，也不会返回 404</p>
+<p>histroy 模式下，前端的url 必须和实际向后端发起的URL一致<br>如：<code>http://xxx/user/id</code>  如果缺少‘user/id’的路由出力，将返回404</p>
+<p>此种模式 需要在服务端增加一个覆盖所有情况的候选资源，如果url 匹配不到任何静态资源，则应该返回同一个 index.html 页面</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JS基础-触摸事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -322,19 +452,19 @@
 
 
   
-    <article id="post-工程化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-工程化-基础（1）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/04/工程化/">工程化</a>
+      <a class="article-title" href="/2018/12/04/工程化-基础（1）/">工程化</a>
     </h1>
   
 
         
-        <a href="/2018/12/04/工程化/" class="archive-article-date">
+        <a href="/2018/12/04/工程化-基础（1）/" class="archive-article-date">
   	<time datetime="2018-12-04T06:24:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-04</time>
 </a>
         
@@ -342,8 +472,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>模版引擎<br>less<br>ES6<br>commonJS<br>gulp<br>webpack<br>jenkins</p>
-<p>发布系统</p>
+        <p>模版引擎<br>less<br>ES6<br>commonJS<br>gulp<br>webpack<br>jenkins<br>发布系统</p>
+<p>gitLab 和 jenkins </p>
+<h4 id="读懂-package-json-文件"><a href="#读懂-package-json-文件" class="headerlink" title="读懂 package.json 文件"></a>读懂 package.json 文件</h4><p>npm-script</p>
+<p>scripts: {<br>}</p>
+<p>key 是生命周期事件名，value 是命令</p>
+<p>npm-script 任意脚本，会传递给shell 取执行ß<br>如何在合并代码的时候自动出发jenkins的自动编译打包。</p>
+<p>path </p>
 
       
 
@@ -615,137 +750,9 @@
 
 
   
-    <article id="post-TS-基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/10/TS-基础/">Hello TypeScript</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/10/TS-基础/" class="archive-article-date">
-  	<time datetime="2018-10-10T06:32:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>基础的说明手册</p>
-<p>###基础类型</p>
-<p>####boolean</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let is: boolean = false</span><br></pre></td></tr></table></figure>
-<h4 id="numbwe"><a href="#numbwe" class="headerlink" title="numbwe"></a>numbwe</h4><h4 id="string"><a href="#string" class="headerlink" title="string"></a>string</h4><h4 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h4><ol>
-<li>元素类型后面接[]，表示由此类元素组成的一个数组</li>
-<li>数组泛型<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let list: number[] = [1,2,3]</span><br><span class="line">let list: Array&lt;number&gt; = [1, 2, 3]</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="元组-Tuple"><a href="#元组-Tuple" class="headerlink" title="元组 Tuple"></a>元组 Tuple</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let x: [string, number]</span><br><span class="line"></span><br><span class="line">x = [&apos;hello&apos;, 10]</span><br></pre></td></tr></table></figure>
-<p>访问越界元素，会使用联合类型替代</p>
-<h4 id="枚举-enum"><a href="#枚举-enum" class="headerlink" title="枚举 enum"></a>枚举 enum</h4><p>enum Color {Red, Green, Blue}</p>
-<h4 id="Any"><a href="#Any" class="headerlink" title="Any"></a>Any</h4><h4 id="Void"><a href="#Void" class="headerlink" title="Void"></a>Void</h4><h4 id="Null"><a href="#Null" class="headerlink" title="Null"></a>Null</h4><h4 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a>Undefined</h4><h4 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h4><h3 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h3><p>var<br>let<br>const<br>解构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">let input = [1, 2]</span><br><span class="line">let [first, second] = input</span><br><span class="line">console.log(first) // 1</span><br><span class="line">console.log(second) // 2</span><br><span class="line">// 相当于</span><br><span class="line">first = input[0]</span><br><span class="line">second = input[1]</span><br><span class="line"></span><br><span class="line">// 解构作用于已经声明的变量</span><br><span class="line">[first, second] = [first, second]</span><br><span class="line"></span><br><span class="line">// 作用于函数</span><br><span class="line">funciton f ([first, second]: [number, numbwe]) &#123;</span><br><span class="line">  console.log(first)</span><br><span class="line">  console.log(second)</span><br><span class="line">&#125;</span><br><span class="line">f(input)</span><br></pre></td></tr></table></figure></p>
-<h4 id="属性重命名"><a href="#属性重命名" class="headerlink" title="属性重命名"></a>属性重命名</h4><p>let {a: newName1, b: newName2} = o;</p>
-<h4 id="展开"><a href="#展开" class="headerlink" title="展开"></a>展开</h4><p>展开数组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let first = [1, 2]</span><br><span class="line">let second = [3, 4]</span><br><span class="line">let bothPlus = [0, ...first, ...second, 5]</span><br><span class="line">// bothPlus -&gt; [0, 1, 2, 3, 4, 5]</span><br></pre></td></tr></table></figure>
-<p>展开对象 相同属性 后面的对象会覆盖前面的对象<br>展开对象实例时，会丢失方法</p>
-<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>可选属性 ？<br>只读属性 readonly</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-业务-hybrid-网页唤起App" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/09/业务-hybrid-网页唤起App/">网页唤起App</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/09/业务-hybrid-网页唤起App/" class="archive-article-date">
-  	<time datetime="2018-10-09T07:47:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>交互模型</p>
-</blockquote>
-<p>1、新建Native 请求对象</p>
-<p>2、发送URL请求到Native端</p>
-<p>3、Native 返回数据</p>
-<p>4、执行回调</p>
-<p>两种方式<br>URL Scheme<br>Universal Link</p>
-<p>不能在页面打开的时候直接打开App 必须有一步用户触发</p>
-<p>Universal Link 生效的条件是<br>必须和当前的页面在不同的域名下</p>
-<p>处理方式<br>Universal Link 没有应用的时候会跳转App store </p>
-<p>Android 使用 URL Scheme 在微信中会首先跳转到应用宝<br>在 3 秒后 打不开App 也会跳转应用宝（使用URL scheme 如果跳转不成功，没有反应，所以需要处理）</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -829,6 +836,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS iphone x xr 底部的安全距离</a>
               </li>
              
               <li class="article-tag-list-item">

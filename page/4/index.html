@@ -123,6 +123,134 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-TS-基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/10/TS-基础/">Hello TypeScript</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/10/TS-基础/" class="archive-article-date">
+  	<time datetime="2018-10-10T06:32:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基础的说明手册</p>
+<p>###基础类型</p>
+<p>####boolean</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let is: boolean = false</span><br></pre></td></tr></table></figure>
+<h4 id="numbwe"><a href="#numbwe" class="headerlink" title="numbwe"></a>numbwe</h4><h4 id="string"><a href="#string" class="headerlink" title="string"></a>string</h4><h4 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h4><ol>
+<li>元素类型后面接[]，表示由此类元素组成的一个数组</li>
+<li>数组泛型<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let list: number[] = [1,2,3]</span><br><span class="line">let list: Array&lt;number&gt; = [1, 2, 3]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="元组-Tuple"><a href="#元组-Tuple" class="headerlink" title="元组 Tuple"></a>元组 Tuple</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let x: [string, number]</span><br><span class="line"></span><br><span class="line">x = [&apos;hello&apos;, 10]</span><br></pre></td></tr></table></figure>
+<p>访问越界元素，会使用联合类型替代</p>
+<h4 id="枚举-enum"><a href="#枚举-enum" class="headerlink" title="枚举 enum"></a>枚举 enum</h4><p>enum Color {Red, Green, Blue}</p>
+<h4 id="Any"><a href="#Any" class="headerlink" title="Any"></a>Any</h4><h4 id="Void"><a href="#Void" class="headerlink" title="Void"></a>Void</h4><h4 id="Null"><a href="#Null" class="headerlink" title="Null"></a>Null</h4><h4 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a>Undefined</h4><h4 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h4><h3 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h3><p>var<br>let<br>const<br>解构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">let input = [1, 2]</span><br><span class="line">let [first, second] = input</span><br><span class="line">console.log(first) // 1</span><br><span class="line">console.log(second) // 2</span><br><span class="line">// 相当于</span><br><span class="line">first = input[0]</span><br><span class="line">second = input[1]</span><br><span class="line"></span><br><span class="line">// 解构作用于已经声明的变量</span><br><span class="line">[first, second] = [first, second]</span><br><span class="line"></span><br><span class="line">// 作用于函数</span><br><span class="line">funciton f ([first, second]: [number, numbwe]) &#123;</span><br><span class="line">  console.log(first)</span><br><span class="line">  console.log(second)</span><br><span class="line">&#125;</span><br><span class="line">f(input)</span><br></pre></td></tr></table></figure></p>
+<h4 id="属性重命名"><a href="#属性重命名" class="headerlink" title="属性重命名"></a>属性重命名</h4><p>let {a: newName1, b: newName2} = o;</p>
+<h4 id="展开"><a href="#展开" class="headerlink" title="展开"></a>展开</h4><p>展开数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let first = [1, 2]</span><br><span class="line">let second = [3, 4]</span><br><span class="line">let bothPlus = [0, ...first, ...second, 5]</span><br><span class="line">// bothPlus -&gt; [0, 1, 2, 3, 4, 5]</span><br></pre></td></tr></table></figure>
+<p>展开对象 相同属性 后面的对象会覆盖前面的对象<br>展开对象实例时，会丢失方法</p>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>可选属性 ？<br>只读属性 readonly</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-业务-hybrid-网页唤起App" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/09/业务-hybrid-网页唤起App/">网页唤起App</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/09/业务-hybrid-网页唤起App/" class="archive-article-date">
+  	<time datetime="2018-10-09T07:47:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>交互模型</p>
+</blockquote>
+<p>1、新建Native 请求对象</p>
+<p>2、发送URL请求到Native端</p>
+<p>3、Native 返回数据</p>
+<p>4、执行回调</p>
+<p>两种方式<br>URL Scheme<br>Universal Link</p>
+<p>不能在页面打开的时候直接打开App 必须有一步用户触发</p>
+<p>Universal Link 生效的条件是<br>必须和当前的页面在不同的域名下</p>
+<p>处理方式<br>Universal Link 没有应用的时候会跳转App store </p>
+<p>Android 使用 URL Scheme 在微信中会首先跳转到应用宝<br>在 3 秒后 打不开App 也会跳转应用宝（使用URL scheme 如果跳转不成功，没有反应，所以需要处理）</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-网页性能-优化建议-Minify-css" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -597,65 +725,9 @@
 
 
   
-    <article id="post-CSS-弹性盒子" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/17/CSS-弹性盒子/">Flex 布局</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/17/CSS-弹性盒子/" class="archive-article-date">
-  	<time datetime="2017-06-17T13:19:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>提供一种更加有效的方式开对一个容器中的子元素进行排列、对齐和分配空白空间。</p>
-<p>flex container 标准属性</p>
-<p>display: flex;</p>
-<p>flex-direction: row | row-reverse | colum |colum-reverse;</p>
-<p>row:<br>
-        
-          <a class="article-more-a" href="/2017/06/17/CSS-弹性盒子/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -739,6 +811,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS iphone x xr 底部的安全距离</a>
               </li>
              
               <li class="article-tag-list-item">

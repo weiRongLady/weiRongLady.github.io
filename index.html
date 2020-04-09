@@ -123,6 +123,151 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSS-设置iphone-x-的安全区" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/09/CSS-设置iphone-x-的安全区/">CSS-设置iphone x + 的安全区</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/09/CSS-设置iphone-x-的安全区/" class="archive-article-date">
+  	<time datetime="2020-04-09T07:44:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="viewport-fit"><a href="#viewport-fit" class="headerlink" title="viewport-fit"></a>viewport-fit</h3><p>viewport-fit 控制文档如何填充满足整个屏幕</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;viewport-fit=cover&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>// 不影响初始布局，整个web页面可以查看<br>viewport-fit: auto;<br>// 按照比例缩放，以显示内嵌的最大矩形<br>viewport-fit: contain;<br>// 视图端口被缩放以填充设备显示<br>viewport-fit: cover;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 建议：如果使用 viewport-fit=cover 最好使用 safe-area 变量，确保重要内容不会显示在视口之外</span><br><span class="line"></span><br><span class="line">body &#123;</span><br><span class="line">  padding:</span><br><span class="line">    env(safe-area-inset-top, 20px)</span><br><span class="line">    env(safe-area-inset-right, 20px)</span><br><span class="line">    env(safe-area-inset-bottom, 20px)</span><br><span class="line">    env(safe-area-inset-left, 20px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="css的env函数"><a href="#css的env函数" class="headerlink" title="css的env函数"></a>css的env函数</h3><p>env 将用户代理的环境变量插入在css 中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">env( &lt;custom-ident&gt; , &lt;declaration-value&gt;? )</span><br></pre></td></tr></table></figure>
+<p>custom-ident：指用户自定义字符串标识符。一种CSS 数据类型；要区分大小写，值不能有任何歧义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">env(safe-area-inset-bottom);</span><br><span class="line">//  有回退值</span><br><span class="line">env(safe-area-inset-bottom, 20px);</span><br></pre></td></tr></table></figure>
+<h4 id="value"><a href="#value" class="headerlink" title="value"></a>value</h4><blockquote>
+<p>safe-area-inset-top, safe-area-inset-right, safe-area-inset-bottom, safe-area-inset-left<br>safe-area-inset-*由四个定义了视口边缘内矩形的 top, right, bottom 和 left 的环境变量组成，这样可以安全地放入内容，而不会有被非矩形的显示切断的风险。对于矩形视口，例如普通的笔记本电脑显示器，其值等于零。 对于非矩形显示器（如圆形表盘，iPhoneX屏幕），在用户代理设置的四个值形成的矩形内，所有内容均可见。</p>
+</blockquote>
+<p>注意: 不同于其他的 CSS 属性，用户代理定义的属性名字对大小写敏感。</p>
+<p>支持： chrome 69+</p>
+<p>解决方案：<br>1、meta 的 viewport content 值增加 viewport-fit=cover<br>2、如果是固底的 tab-bar 使用 env(safe-area-inset-bottom)，其他情况按照场景设置其他的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">padding-top: constant(safe-area-inset-top); // ios &lt; 11.2 </span><br><span class="line">padding-top: env(safe-area-inset-top); //  ios &gt;= 11.2</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS iphone x xr 底部的安全距离</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-火花：1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/07/火花：1/">思想：</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/07/火花：1/" class="archive-article-date">
+  	<time datetime="2020-04-07T12:42:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>winter 直播的思想摘要：</p>
+<p>0、基础：</p>
+<p>  编程能力：</p>
+<p>  架构能力：</p>
+<p>  工程化能力：</p>
+<p>1、前端知识<br>2、领域知识：和业务相关性强</p>
+<p>电商 -&gt; 新零售<br>解决通用型问题</p>
+<p>刻意练习</p>
+<p>看到了就学习。不要太功利了，过多思考到底要不要取学。</p>
+<p>架构能力，多去学习其他的框架</p>
+<p>如何学习原代码？不要通读，有目的性的，可以去学习其他的。</p>
+<p>刻意练习：</p>
+<p>建立知识体系</p>
+<p>知识整理法：</p>
+<p>顺序关系</p>
+<p>组合关系</p>
+<p>维度关系: 词法 语意 运行时</p>
+<p>分类关系</p>
+<p>追溯法  -&gt; 标准文档 -&gt; 大师</p>
+<p>什么时候好的面试题？</p>
+<p>区分度：<br>覆盖面：</p>
+<p>打断和争论</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-工程化-webpack基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -677,298 +822,9 @@
 
 
   
-    <article id="post-Git-基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/10/Git-基础/">Git</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/10/Git-基础/" class="archive-article-date">
-  	<time datetime="2020-03-10T03:23:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>几个概念：</p>
-<blockquote>
-<p>工作区间 Working Directory</p>
-</blockquote>
-<blockquote>
-<p>暂存区 Stage（index）</p>
-</blockquote>
-<blockquote>
-<p>本地仓库 Local Repository</p>
-</blockquote>
-<blockquote>
-<p>远程仓库 Remote Repository</p>
-</blockquote>
-<blockquote>
-<p>文件状态</p>
-</blockquote>
-<pre><code>未被跟踪的 untracked
-未修改 unmodified
-修改 modified
-暂存 staged
-</code></pre><p>基本命令</p>
-<blockquote>
-<hr>
-<p>开始</p>
-</blockquote>
-<p>1、已存在没有进行版本控制的项目目录<br>cd /directoryname</p>
-<p>git init  生成 .git 子目录，包含初始化git仓库中所有的必须文件</p>
-<p>对非空的文件建立跟踪和提交</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add *.c</span><br><span class="line"></span><br><span class="line">git add LICENSE</span><br><span class="line"></span><br><span class="line">git commit -m  &apos;xxx&apos;</span><br></pre></td></tr></table></figure>
-<p>2、已有项目</p>
-<p>git clone url</p>
-<blockquote>
-<hr>
-<p>建立跟踪</p>
-</blockquote>
-<p>git add filename 开始跟踪</p>
-<p>git add 精确的将内容添加到下一次的提交中</p>
-<p>可以用来跟踪新的文件</p>
-<p>将已跟踪的文件放到暂存区</p>
-<p>将合并时有冲突的文件标记为已解决</p>
-<blockquote>
-<hr>
-</blockquote>
-<p>查看状态</p>
-<p>git status [-s][–short]  -s/–short 简化git 的输出提示</p>
-<p>.gitignore 文件 可以参考 <a href="https://github.com/github/gitignore" target="_blank" rel="noopener">ignore 文件列表</a> </p>
-<p>git diff [–cached][–staged]查看暂存前后的变化</p>
-<blockquote>
-<hr>
-</blockquote>
-<p>git commit -m ‘xxx’ 提交更新</p>
-<p>git comiit [-a] -a 表示跳过暂存区 </p>
-<blockquote>
-<hr>
-</blockquote>
-<p>git rm filename 从暂存区移除文件，并从工作区删除</p>
-<p>git rm [-f] file -f 删除之前已经修改或者已经放到暂存区的文件</p>
-<p>git rm [–catch] file file  可以是文件 / 文件目录 / glob 模式</p>
-<blockquote>
-<hr>
-</blockquote>
-<p>git mv 移动文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 文件重命名</span><br><span class="line">git mv file_form file_to </span><br><span class="line"></span><br><span class="line">// 等价于</span><br><span class="line">mv file_from file_to</span><br><span class="line">git rm file_from</span><br><span class="line">git add file_to</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>回顾历史<br><a href="https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2" target="_blank" rel="noopener">git log</a></p>
-</blockquote>
-<p>git log [-p] [–patch] -2  -p / –patch 补丁信息 -2 表示最近的两次提交</p>
-<p>git log [–stat] –stat 每次提交的简略信息</p>
-<p>git log [–pretty==online/format/short/full/fuller/graph] 以不同的格式来展示,比如 oneline 会将每个提交放在一行显示 ,format 可以定制记录的显示格式</p>
-<blockquote>
-<hr>
-</blockquote>
-<p>git reset 撤销</p>
-<p>git reset HEAD filname 取消暂存文件</p>
-<p>git checkout filename 取消文件的修改</p>
-<blockquote>
-<hr>
-</blockquote>
-<p>远程仓库的使用</p>
-<p>”远程“ 未必表示仓库在网络或者互联网其他唯一，而是只是表示它在别处。远程仓库可以在你的本地主机上。</p>
-<p>git remote add <shortname> <url> 添加远程仓库 </url></shortname></p>
-<p>git fetch origin 会抓取上一次抓取（克隆）后所推送的所有工作 git fetch 只会将数据下载到本地而不会自动合并或者修改当前的工作。必须手动合并</p>
-<p>如果和远程分支设置了跟踪可以使用 git pull 会从上次抓取（克隆）的服务器上抓取数据并尝试合并到当前所在的分支</p>
-<p>git push <romote> <branch>  eg. git push origin master 推送到远程仓库</branch></romote></p>
-<p>git remote show origin 查看远程仓库</p>
-<p>git remote rename xx 重命名远程仓库<br>git remote remove xx 移除远程仓库</p>
-<blockquote>
-<hr>
-</blockquote>
-<p>git tag 打标签</p>
-<blockquote>
-<p>别名 alias</p>
-</blockquote>
-<p><a href="https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E8%8E%B7%E5%8F%96-Git-%E4%BB%93%E5%BA%93#ch02-git-basics-chapter" target="_blank" rel="noopener">参考1</a><br><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html?nsukey=otlWJ%2BjVWlrME0mwReA1AnRH896KMUgeSEV%2FVjdKAZRQLTBUy7fIT3TfNpjbIPtj7t3dhJjXBPx8J7iWwTq6zyyLzO6iZ0U4hA3bBxu7wQrvhR2fU2RWdNXWd9Rzo8ZxK06Cc%2FS%2B0KbeBmG4QDFVlJkGunwiVtXA6WjO%2F78CFEikyj84aK%2BHyG5ZNOHx3kkq4HT1kVgC2j88fhVQUBxqNw%3D%3D" target="_blank" rel="noopener">参考2</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-网页性能-以用户为中心的性能指标" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/10/网页性能-以用户为中心的性能指标/">以用户为中心的性能指标</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/10/网页性能-以用户为中心的性能指标/" class="archive-article-date">
-  	<time datetime="2020-03-10T03:00:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我们已经知道性能的重要性，并且认为网页应用的运行速度十分关键。<br>但是，当我们尝试回答“我的应用有多快？”这个问题时，您就会意识到，“快”是一个很模糊的概念，并且是相对的。<br>事实上在网页加载的任何时期，都可能发生性能不佳的情况，而不仅仅是加载的过程，所以我们不能仅仅从加载时间来判断网页的性能。<br>应用无法迅速响应用户的操作，无法平滑的滚动或者产生动画效果和加载缓慢一样，都会导致糟糕的用户体验<br>所以这些性能误解，会导致开发者将注意力集中在对用户体验帮助不大甚至完全无效的事情上。<br>因此，为了避免出现这个错误，我们来回答下列问题：</p>
-<ol>
-<li><p>哪些指标能够最准确地衡量人所感受到的性能？</p>
-</li>
-<li><p>如何针对实际用户来衡量这些指标？</p>
-</li>
-<li><p>如何解读衡量结果以确定应用是否“速度快”？</p>
-</li>
-<li><p>了解应用的实际用户性能之后，如何避免性能下降并在未来提高性能？</p>
-</li>
-</ol>
-<p>当用户导航到网页时，通常会寻找视觉反馈，以确信一切合预期。<br>是否发生？    导航是否成功启动？服务器是否有响应？<br>是否有用？    是否已渲染可以与用户互动的足够内容？<br>是否可用？    用户可以与页面交互，还是页面仍在忙于加载？<br>是否令人愉快？    交互是否顺畅而自然，没有滞后和卡顿？</p>
-<p>为了解页面何时为用户提供这样的反馈，我们定义了多个新指标：</p>
-<p>FCP First Contentful Paint 首次内容绘制<br>FMP First Meaningful Paint 首次有效绘制<br>Speed Index 速度指数<br>First CPU Idle 首次CPU闲置时间<br>TTI Time to Interactive可交互前耗时<br>FID Max Potential First Input Delay首次输入延迟最大预估</p>
-<p>将指标对应到用户体验<br>回顾上文确定的对用户体验最重要的问题，下表概述刚刚列出的各个指标如何对应到我们希望优化的体验：<br>下列加载时间线屏幕截图有助于您更直观地了解加载指标对应的加载体验：</p>
-<p>体验    指标<br>是否发生？    首次绘制 (FP)/首次内容绘制 (FCP)<br>是否有用？    首次有效绘制 (FMP)/主角元素计时<br>是否可用？    可交互时间 (TTI)<br>是否令人愉快？    耗时较长的任务（在技术上不存在耗时较长的任务）</p>
-<p>FP 首次绘制<br>FCP首次内容绘制的时间<br>Paint Timing API 定义两个指标：首次绘制 (FP) 和 首次内容绘制 (FCP)。 这些指标用于标记导航之后浏览器在屏幕上渲染像素的时间点。 这对于用户来说十分重要，因为它回答了以下问题： 是否发生？<br>这两个指标之间的主要差别在于：<br>FP 标记浏览器渲染任何在视觉上不同于导航前屏幕内容之内容的时间点。 FCP 标记的是从导航浏览器渲染来自 DOM 第一个字节内容的时间，该内容可能是文本、图像、SVG 甚至 <canvas> 元素。</canvas></p>
-<p>问：从浏览器导航栏输入网址到展示内容发生了什么？<br>它反馈了页面的加载时间<br>那么如何去减少加载时间，可以从下两个方面<br>加快资源下载时间<br>减少阻塞渲染DOM内容的工作<br>具体可以做的工作：<br>减少外部的css 和 js 依赖<br>使用http缓存加速重复访问<br>减小压缩资源<br>js 的启动优化减少js的荷载，在页面加载时候减少加载js 例如：Tree-shaking（Tree shaking is a form of dead code elimination）</p>
-<p>可以通过以下方法降低 JavaScript 的网络传输成本：<br>· 仅发送用户所需的代码。<br>· 使用代码拆分将 JavaScript 分解成关键部分和非关键部分。<br>· 延迟加载非关键代码。<br>· 源码压缩·<br>· 移除未使用的代码。·<br>· 缓存代码以最大限度减少网络往返次数。<br>· 使用长期缓存以避免重新提取尚未更改的资源。 </p>
-<p>追踪 FCP<br>查看代码片段是如何以编程的方式去访问 FCP 数据</p>
-<p>FMP首次有效绘制和主角元素计时<br>目前尚无标准化的 FMP 定义，因此也没有性能条目类型。 部分原因在于很难以通用的方式确定“有效”对于所有页面意味着什么。<br>但是，一般来说，在单个页面或单个应用中，最好是将 FMP 视为主角元素呈现在屏幕上的时刻。<br>首次有效绘制 (FMP) 指标能够回答“是否有用”这一问题。<br>虽然“有用”这一概念很难以通用于所有网页的方式规范化（因此尚不存在任何规范），但是网页开发者自己很清楚其页面的哪些部分对用户最为有用。<br> 网页的这些“最重要部分”通常称为主角元素。 例如 在天气应用上，主角元素是指定地点的天气预测。 在新闻网站上，主角元素可能是重大新闻和置顶大图。<br>在网页上，几乎总有一部分内容比其他部分更重要。 如果页面最重要的部分能迅速加载，用户可能不会注意到其余部分是否加载。</p>
-<p>Speed Index</p>
-<p>Speed Index是一个页面加载的性能指标，展示页面内容额可见填充速度。数值越低越好<br>要降低速度指数：<br>优化内容效率。 删除无无用的下载，压缩<br>优化关键渲染路径。</p>
-<p>First CPU Idle</p>
-<p>第一个CPU空闲指标衡量一个页面是可以互动的最低时间限度<br>优化策略：<br>在页面加载前减少必须要下载或执行的关键资源<br>减少每个关键资源的大小</p>
-<p>TTI 可交互时间</p>
-<p>可交互时间 (TTI) 指标用于标记应用已进行视觉渲染并能可靠响应用户输入的时间点，衡量的是页面完全可以交互。<br>应用可能会因为多种原因而无法响应用户输入：<br>页面组件运行所需的 JavaScript 尚未加载。<br>耗时较长的任务阻塞主线程<br>TTI 指标可识别页面初始 JavaScript 已加载且主线程处于空闲状态（没有耗时较长的任务）的时间点。<br>为什么要使用TTI来衡量？<br>因为又些网站是以牺牲用户的交互体验来换取页面的展示。当你发现页面已经展示好了，但是不能进行交互，这是很令人沮丧的。</p>
-<p>注：完全可交互的几个指标：<br>1、页面已经展示了已经被FCP测量的有用的内容，<br>2、大多数的可见元素已经绑定了事件<br>3、页面在50ms内响应用户的交互</p>
-<p>First CPU Idle 和 TTI 都是衡量用户是否可以在页面进行输入<br>First CPU Idle 发生在用户可以开始和页面交互<br>TTI 发生在用户可以完全的和页面进行交互<br>计算 TTI 的得分</p>
-<p>提高TTI<br>延迟或者删除不必要的js<br>代码拆分<br>优化第三方的js<br>减少主线程工作<br>减少js 的执行时间</p>
-<p>Max Potential FID</p>
-<p>最差情况用户体验的输入延迟<br>从第一次用户和网站进行交互到浏览器真正去回应这个交互的时间。<br>这个时间是根据在FCP之后的最长任务（ longest task）<br>的时间<br>为什么是FCP 之后的最长任务是因为。在FCP 之前用户不会去尝试和没有任何内容的页面进行交互。这是FCP改衡量的。<br>如何计算FID的得分，是和 HTTP Archive</p>
-<p>如何提高得分：</p>
-<p>如何提高得分：<br>和提高TTI 是一致的</p>
-<p>FCP / FMP / Speed Index </p>
-<p>都是用来衡量页面内容的加载和渲染的性能指标</p>
-<p>First CPU Idle  /  TTI  /  FID </p>
-<p>都是用来衡量用户能否交互的指标</p>
-<p>耗时较长的任务</p>
-<p>浏览器通过将任务添加到主线程上的队列等待逐个执行来响应用户输入。 浏览器执行应用的 JavaScript 时也会这样做，因此从这个角度看，浏览器为单线程。</p>
-<p>在某些情况下，运行这些任务可能要花费较长时间，如果确实如此，主线程就会遭到阻止，而队列中的所有其他任务都必须等待。<br>对于用户而言，任务耗时较长表现为滞后或卡顿，而这也是目前网页不良体验的主要根源。</p>
-<p>Long Tasks API 可以将任何耗时超过 50 毫秒的任务标示为可能存在问题，并向应用开发者显示这些任务。 选择 50 毫秒的时间是为了让应用满足在 100 毫秒内响应用户输入</p>
-<p>浏览器通过将任务添加到主线程上的队列等待逐个执行来响应用户输入。 浏览器执行应用的 JavaScript 时也会这样做，因此从这个角度看，浏览器为单线程。</p>
-<p>在某些情况下，运行这些任务可能要花费较长时间，如果确实如此，主线程就会遭到阻止，而队列中的所有其他任务都必须等待。</p>
-<p>对于用户而言，任务耗时较长表现为滞后或卡顿，而这也是目前网页不良体验的主要根源。<br>Long Tasks API 可以将任何耗时超过 50 毫秒的任务标示为可能存在问题，并向应用开发者显示这些任务。 选择 50 毫秒的时间是为了让应用满足在 100 毫秒内响应用户输入的 RAIL 指导原则。</p>
-<p>优化内容效率</p>
-<p>优化关键渲染路径</p>
-<p>RAIL 模型评估</p>
-<p>Rail 是一种以用户往往为中心的性能模型</p>
-<p>每个网络应用都有与起生命周期相关的四个不同的方向，并且这些方向以不同的方式影响着性能</p>
-<p>以用户未中心：<br>以用户未未中心不说让我们的网站在任何特定的设备都能运行很快，而是使用户满意</p>
-<p>立即响应用户： 在100ms 内确定用户的输入</p>
-<p>设置动画或者滚动，在10ms 内生成帧</p>
-<p>最大限度增加主线程的空闲时间</p>
-<p>持续吸引用户；在1000ms呈现交互内容</p>
-<p>以用户为中心：</p>
-<p>让用户成为您的性能工作的中心。用户花在网站上的大多数时间不是等待加载，而是在使用时等待响应。了解用户如何评价性能延迟：</p>
-<p>响应：在 100 毫秒以内响应<br>在用户注意到滞后之前您有 100 毫秒的时间可以响应用户输入。这适用于大多数输入，不管他们是在点击按钮、切换表单控件还是启动动画。但不适用于触摸拖动或滚动。</p>
-<p>如果您未响应，操作与反应之间的连接就会中断。用户会注意到。<br>尽管很明显应立即响应用户的操作，但这并不总是正确的做法。使用此 100 毫秒窗口执行其他开销大的工作，但需要谨慎，以免妨碍用户。如果可能，请在后台执行工作。</p>
-<p>对于需要超过 500 毫秒才能完成的操作，请始终提供反馈。</p>
-<p>动画：在 10 毫秒内生成一帧</p>
-<p>动画不只是奇特的 UI 效果。例如，滚动和触摸拖动就是动画类型。<br>如果动画帧率发生变化，您的用户确实会注意到。您的目标就是每秒生成 60 帧，每一帧必须完成以下所有步骤：</p>
-<p>从纯粹的数学角度而言，每帧的预算约为 16 毫秒（1000 毫秒 / 60 帧 = 16.66 毫秒/帧）。 但因为浏览器需要花费时间将新帧绘制到屏幕上，只有 10 毫秒来执行代码</p>
-<p>在像动画一样的高压点中，关键是不论能不能做，什么都不要做，做最少的工作。 如果可能，请利用 100 毫秒响应预先计算开销大的工作，这样您就可以尽可能增加实现 60fps 的可能性。</p>
-<p>跟踪耗时较长的任务<br>上文提到，耗时较长的任务通常会带来某种负面的用户体验（例如， 事件处理程序运行缓慢，或者掉帧）。 您最好了解发生这种情况的频率，以设法尽量减少这种情况。<br>要在 JavaScript 中检测耗时较长的任务，请创建新的 PerformanceObserver，并观察类型为 longtask 的条目。 耗时较长的任务条目的一个有点是包含提供方属性，有助于您更轻松地追查导致出现耗时较长任务的代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const observer = new PerformanceObserver((list) =&gt; &#123;</span><br><span class="line">  for (const entry of list.getEntries()) &#123;</span><br><span class="line">    ga(&apos;send&apos;, &apos;event&apos;, &#123;</span><br><span class="line">      eventCategory:&apos;Performance Metrics&apos;,</span><br><span class="line">      eventAction: &apos;longtask&apos;,</span><br><span class="line">      eventValue:Math.round(entry.startTime + entry.duration),</span><br><span class="line">      eventLabel:JSON.stringify(entry.attribution),</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-<p>observer.observe({entryTypes: [‘longtask’]});<br>提供方属性会指出导致耗时较长任务的帧上下文，这有助于您确定问题是否由第三方 iframe 脚本所致。 未来版本的规范计划添加更多详细信息并公开脚本网址、行号和列号，这有助于确定速度缓慢问题是否由您自己的脚本所致。</p>
-<p>跟踪输入延迟</p>
-<p>阻塞主线程的耗时较长任务可能会导致事件侦听器无法及时执行。 RAIL 性能模型指出，为提供流畅的界面体验，界面应在用户执行输入后的 100 毫秒内作出响应，若非如此，请务必探查原因。<br>若要在代码中检测输入延迟，您可将事件时间戳与当前时间作比较，如果两者相差超过 100 毫秒，您可以并应该进行报告。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const subscribeBtn = document.querySelector(&apos;#subscribe&apos;);</span><br><span class="line"></span><br><span class="line">subscribeBtn.addEventListener(&apos;click&apos;, (event) =&gt; &#123;</span><br><span class="line">  // Event listener logic goes here...</span><br><span class="line"></span><br><span class="line">  const lag = performance.now() - event.timeStamp;</span><br><span class="line">  if (lag &gt; 100) &#123;</span><br><span class="line">    ga(&apos;send&apos;, &apos;event&apos;, &#123;</span><br><span class="line">      eventCategory:&apos;Performance Metric&apos;</span><br><span class="line">      eventAction: &apos;input-latency&apos;,</span><br><span class="line">      eventLabel: &apos;#subscribe:click&apos;,</span><br><span class="line">      eventValue:Math.round(lag),</span><br><span class="line">      nonInteraction: true,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>由于事件延迟通常是由耗时较长的任务所致，因此您可将事件延迟检测逻辑与耗时较长任务检测逻辑相结合：如果某个耗时较长的任务在 event.timeStamp 所示的时间阻塞主线程，您也可以报告该耗时较长任务的提供方值。 如此，您即可在负面性能体验与导致该体验的代码之间建立明确的联系。</p>
-<p>虽然这种方法并不完美（不会处理之后在传播阶段耗时较长的事件侦听器，也不适用于不在主线程中运行的滚动或合成动画），但确实是良好的开端，让您能更好地了解运行时间较长的 JavaScript 代码对用户体验产生影响的频率。</p>
-<p>移动设备<br>百分位    TTI（秒）<br>50%    3.9<br>75%    8.0<br>90%    12.6</p>
-<p>按移动设备与桌面设备划分结果，并以分布图的方式分析数据，可让您迅速了解实际用户的体验。 例如，通过上表，我很容易便可发现，对于此应用，10% 的移动用户需等待 12 秒以上才能进行交互！<br>性能对业务的影响<br>在分析工具中跟踪性能有一项巨大优势，即您之后可以利用该数据来分析性能对业务的影响。<br>如果您在分析工具中跟踪目标达成情况或电子商务转化情况，则可通过创建报告来探查两者与应用性能指标之间的关联。 例如：<br>体验到更快交互速度的用户是否会购买更多商品？<br>如果用户在结账流程中遇到较多耗时较长的任务，其离开率是否较高？<br>如果发现存在关联，即可轻松建立性能至关重要且应该优先考虑的商业案例。</p>
-<p>加载放弃</p>
-<p>我们知道，用户经常会因为页面加载时间过长而选择离开。 不幸的是，这意味着我们的所有性能指标都存在幸存者偏差，即数据不包括未等待页面加载完成的用户的加载指标（这很可能意味着数量过低）。<br>虽然您无法获悉如果这类用户逗留所产生的指标，但可以跟踪发生这种情况的频率以及每位用户逗留的时长。</p>
-<p>使用 Google Analytics 完成此任务比较棘手，因为 analytics.js 库通常是以异步方式加载，而且可能在用户决定离开前尚不可用。 但是，您无需等待 analytics.js 加载完成再将数据发送到 Google Analytics。 您可以直接通过 Measurement Protocol 发送数据。</p>
-<p>以下代码为 visibilitychange 事件添加侦听器（该事件在页面卸载或进入后台时触发），并在该事件触发时发送 performance.now() 值。</p>
-<p>优化性能以及避免性能下降<br>定义以用户为中心的指标的好处在于，您优化这些指标时，用户体验必然也会同时改善。<br>改善性能最简单的一种方法是，直接减少发送到客户端的 JavaScript 代码，但如果无法缩减代码长度，则务必要思考如何提供 JavaScript。<br> 优化 FP/FCP<br>从文档的 <head> 中移除任何阻塞渲染的脚本或样式表，可以减少首次绘制和首次内容绘制前的等待时间。确定向用户指出“正在发生”所需的最小样式集，并将其内联到 <head> 中，即可实现极短的首次绘制时间。</head></head></p>
-<p>优化 FMP/TTI</p>
-<p>确定页面上最关键的界面元素（主角元素）之后，您应确保初始脚本加载仅包含渲染这些元素并使其可交互所需的代码。<br>初始 JavaScript 软件包中所包含的任何与主角元素无关的代码都会延长可交互时间。 没有理由强迫用户设备下载并解析当前不需要的 JavaScript 代码。<br>一般来说，您应该尽可能缩短 FMP 与 TTI 之间的时间。 如果无法最大限度缩短此时间，界面绝对有必要明确指出页面尚不可交互。</p>
-<p>避免出现耗时较长的任务</p>
-<p>拆分代码并按照优先顺序排列要加载的代码，不仅可以缩短页面可交互时间，还可以减少耗时较长的任务，然后即有希望减少输入延迟及慢速帧。<br>除了将代码拆分为多个单独的文件之外，您还可将大型同步代码块拆分为较小的块，以便以异步方式执行，或者推迟到下一空闲点。 以异步方式在较小的块中执行此逻辑，可在主线程中留出空间，供浏览器响应用户输入。<br>最后，您应确保测试第三方代码，并对任何低速运行的代码追责。 产生大量耗时较长任务的第三方广告或跟踪脚本对您业务的伤害大于帮助。</p>
-<p>避免性能下降</p>
-<p>本文重点强调的是针对实际用户的性能测量，虽然 RUM 数据确实是十分重要的性能数据，但实验室数据对于在发布新功能前确保应用性能良好（而且不会下降）而言仍然十分关键。 实验室测试非常适合用于检测性能是否下降，因为这些测试是在受控环境中运行，出现随机变化的可能性远低于 RUM 测试。<br>Lighthouse 和 Web Page Test 等工具可以集成到持续集成服务器中，而且您可以编写相应的测试，以在关键指标退化或下降到低于特定阈值时将构件判定为失败。<br>对于已发布的代码，您可以添加自定义提醒，以通知您负面性能事件的发生率是否意外突增。 例如，如果第三方发布其某个服务的新版本，而您的用户突然开始看到大量新增的耗时较长任务，就代表出现这种情况。<br>为成功避免性能下降，您必须在实验室和实际运行环境中针对发行的每个新功能进行性能测试。</p>
-<p>【参考】<br>1、User-centric performance metrics  by  Philip Walton</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1052,6 +908,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS iphone x xr 底部的安全距离</a>
               </li>
              
               <li class="article-tag-list-item">
