@@ -123,6 +123,58 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-工程化-webpack-实践-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/10/工程化-webpack-实践-1/">工程化-webpack 实践 1</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/10/工程化-webpack-实践-1/" class="archive-article-date">
+  	<time datetime="2020-04-10T08:52:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><h3 id="为什么：存在哪些问题"><a href="#为什么：存在哪些问题" class="headerlink" title="为什么：存在哪些问题"></a>为什么：存在哪些问题</h3><h3 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h3><h3 id="项目的一些优化方向"><a href="#项目的一些优化方向" class="headerlink" title="项目的一些优化方向"></a>项目的一些优化方向</h3><p>1、配置dll 或者 使用 externals</p>
+<p>2、然后 用 BundleAnalyzerPlugin  看看boundle 。看还有啥优化的。 做代码分割</p>
+<h3 id="骨架图-实践"><a href="#骨架图-实践" class="headerlink" title="骨架图 实践"></a>骨架图 实践</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev page-skeleton-webpack-plugin</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CSS-设置iphone-x-的安全区" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -268,19 +320,19 @@
 
 
   
-    <article id="post-工程化-webpack基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-工程化-webpack-基础-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/07/工程化-webpack基础/">工程化-webpack基础</a>
+      <a class="article-title" href="/2020/04/07/工程化-webpack-基础-1/">工程化-webpack基础</a>
     </h1>
   
 
         
-        <a href="/2020/04/07/工程化-webpack基础/" class="archive-article-date">
+        <a href="/2020/04/07/工程化-webpack-基础-1/" class="archive-article-date">
   	<time datetime="2020-04-07T05:41:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-07</time>
 </a>
         
@@ -288,7 +340,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h4><p>安装 node.js</p>
+        <h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>loader：</p>
+<p>webpack 只能理解 JavaScript 和 JSON 文件。<br>loader 让 webpack 能够去处理其他类型的文件，并将它们转换为有效模块，以供应用程序使用，以及被添加到依赖图中</p>
+<p>对模版文件资源文件等需要预处理的文件进行转化和预处理，提供前端构建的方法</p>
+<p>用于对模块的源码进行转换。 在import 或者加载的时候预处理文件</p>
+<p>plugins：</p>
+<p>解决 loader 无法解决的其他问题，执行范围更广的任务，包括：打包优化，资源管理，注入环境变量</p>
+<p>entry：</p>
+<p>构建依赖图的开始的模块</p>
+<p>output：</p>
+<p>在哪里输出创建的 bundle 。以及如何命名这些文件</p>
+<p>mode: development, production, none</p>
+<p>browswer compatibility</p>
+<h4 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h4><p>安装 node.js</p>
 <p>安装 nvm 或 n （ 管理node 版本）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir webpack-project</span><br><span class="line"></span><br><span class="line">cd webpack-project</span><br><span class="line"></span><br><span class="line">// create a package.json file</span><br><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack webpack-cli --save-dev</span><br></pre></td></tr></table></figure>
@@ -309,6 +373,30 @@
 <p>使用 react </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i react react-dom @babel/preset-react -d</span><br></pre></td></tr></table></figure>
 <p>最终<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [</span><br><span class="line">    &quot;@babel/preset-env&quot;</span><br><span class="line">    &quot;@babel/preset-react&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>补充中：</p>
+<p>// 解析es6 和 react jsx</p>
+<p>// 解析 less css</p>
+<p>/// 解析图片和字体</p>
+<p>文件监听</p>
+<p>–watch  需要手动刷新<br>webpack.confog.js</p>
+<p>watch: true</p>
+<p>热更新</p>
+<p>webpack-dev-middleware</p>
+<p>文件指纹 —&gt; 版本发布</p>
+<p>文件压缩<br>ugliyfy<br>optimize<br>html-webpack-plugin 设置 minify</p>
+<p>postcss-loader auto-prefix </p>
+<p>to rem</p>
+<p>raw-loder</p>
+<p>多页面打包</p>
+<p>source-map</p>
+<p>webpack 增强功能</p>
+<p>clean-webpack-plugin</p>
+<p>自动补全</p>
+<p>splitChunksPlugin</p>
+<p>scope hoiting</p>
+<p>备忘：<br>npm install 安装依赖</p>
+<p>npm run upload ——&gt; git pull</p>
+<p>npm run publish –&gt; vue-cli-servce build &amp;&amp; npm run cdn</p>
 
       
 
@@ -757,71 +845,6 @@
 
 
   
-    <article id="post-JS基础-Object" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/11/JS基础-Object/">JS 基础-Object</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/11/JS基础-Object/" class="archive-article-date">
-  	<time datetime="2020-03-11T07:39:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<hr>
-<p>构造函数的方法</p>
-</blockquote>
-<p>assign</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Object</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -911,11 +934,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS iphone x xr 底部的安全距离</a>
+                <a href="javascript:void(0)" class="js-tag color4">css、文字对齐</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css、文字对齐</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS iphone x xr 底部的安全距离</a>
               </li>
              
               <li class="article-tag-list-item">
